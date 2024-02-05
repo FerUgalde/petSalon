@@ -11,7 +11,7 @@
 </head>
 <body>
     <header class="site-init">
-        <div class="flex-container">
+        <div class="flex-container container">
             <h1>The fashion pet</h1>
     
             <nav>
@@ -21,13 +21,27 @@
         </div>
     </header>
 
-    <main class="">
-        <h2>Register a new pet</h2>
-        
+    <main class="container">
+        <div class="register">
+            <h2>Registered Pets</h2>
+            <div class="count-pets">
+                <p id="count"></p>
+            </div>
+            <div class="info-reg">
+                <div class="breeds-pets">
+                    <p id="breeds"></p>
+                </div>
+                <div class="names-pets">
+                    <p id="names"></p>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="site-footer">
-        <p id="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, sequi!</p>
+        <div class="container">
+            <p id="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, sequi!</p>
+        </div>
     </footer>
 
     <script src="./scripts/register.js"></script>
