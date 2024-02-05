@@ -75,7 +75,7 @@ function displayFooterInfo(){
     `;
 }
 
+displayFooterInfo();
 petsCount();
 petsBreeds();
 petsNames();
-displayFooterInfo();
