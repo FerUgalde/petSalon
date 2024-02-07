@@ -58,7 +58,7 @@ function petsNames(){
 // display the information about the pet salon
 function displayFooterInfo(){
     document.getElementById("info").innerHTML=`
-    <p>🐩Welcome to the ${salon.name}🐈</p><p>📍We are located in ${salon.address.street}, ${salon.address.number}, ${salon.address.zip}</p><p>You can call us 📞${salon.phone}</p>
+    <p>🐩Welcome to ${salon.name}🐈</p><p>📍We are located in ${salon.address.street}, ${salon.address.number}, ${salon.address.zip}</p><p>You can call us 📞${salon.phone}</p>
     `;
 }
 
