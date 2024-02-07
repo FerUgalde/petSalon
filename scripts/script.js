@@ -39,3 +39,23 @@ let salon = {
     name:"The fashion pet",
     phone:"9999999"
 }
+
+// object constructor
+function Employee(id, name, phone, area){
+    //properties
+    this.id = id;
+    this.name = name;
+    this.phone = phone;
+    this.area = area;
+
+    //method
+    this.present = function(){
+        console.log('ID: ' + this.id + ' Name: ' + this.name + ' Phone: ' + this.phone + ' Area: ' + this.area);
+    };
+}
+
+let empl1 = new Employee(1234, "David", "111-222-1234", "IT");
+let empl2 = new Employee(6789, "Carolina", "111-222-5555", "IT");
+empl1.present();
+empl2.present();
+

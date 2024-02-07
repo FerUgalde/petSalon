@@ -6,32 +6,17 @@ let salon={
         number:"262-k",
         zip:"123345"
     },
-    pets:[
-        {
-            name:"Scooby",
-            age:60,
-            gender:"Male",
-            service:"Dental cleaning",
-            breed:"Great Dane"
-        },
-        {
-            name:"Scrappy",
-            age:50,
-            gender:"Male",
-            service:"Bath and drying",
-            breed:"Doberman"
-        },
-        {
-            name:"Tweety birdy",
-            age:80,
-            gender:"Female",
-            service:"Nail trimming",
-            breed:"Parrot"
-        }
-    ] // pet arry
+    pets:[] // pet arry
 }
 
-
+// constructor
+function Pet(name, age, gender, breed, service){
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+    this.breed = breed;
+    this.service = service;
+}
 
 // display registered pets count
 function petsCount(){
@@ -42,6 +27,7 @@ function petsCount(){
 
 // display pet names
 function petsBreeds(){
+    // document.getElementById("breeds").innerHTML = "";
     let breedList = [];
     for (let i=0; i<salon.pets.length; i++){
         breedList += `<li>${salon.pets[i].breed}</li>`;
@@ -56,6 +42,7 @@ function petsBreeds(){
 
 // display pet names
 function petsNames(){
+    // document.getElementById("names").innerHTML = "";
     let nameList = [];
     for (let i=0; i<salon.pets.length; i++){
         nameList += `<li>${salon.pets[i].name}</li>`;
@@ -75,7 +62,47 @@ function displayFooterInfo(){
     `;
 }
 
+// get elements from HTML
+let inputName = document.getElementById("txtName");
+let inputAge = document.getElementById("numAge");
+let inputGender = document.getElementById("selectGender");
+let inputBreed = document.getElementById("txtBreed");
+let inputService = document.getElementById("selectService");
+
+function register(){
+
+    let fields = [inputName.value, inputAge.value, inputGender.value, inputBreed.value, inputService.value];
+
+    if(fields.every(value => value !== "")){
+        let newPet = new Pet(inputName.value, inputAge.value, inputGender.value, inputBreed.value, inputService.value);
+    
+        salon.pets.push(newPet);
+    
+        petsCount();
+        petsBreeds();
+        petsNames();
+    
+        inputName.value = "";
+        inputAge.value = "";
+        inputGender.value = "";
+        inputBreed.value = "";    
+        inputService.value = "";
+    }
+}
+
+
+// pets default
+function init(){
+    // creating predefined obj
+    let pet1 = new Pet("Scooby",60,"Male","Great Dane","Dental cleaning");
+    let pet2 = new Pet("Scrappy",50,"Male","Doberman","Bath and drying");
+    let pet3 = new Pet("Tweety",80,"Female","Parrot","Nail trimming");
+    salon.pets.push(pet1, pet2, pet3);
+    // executing fn
+    petsCount();
+    petsBreeds();
+    petsNames();
+}
+
 displayFooterInfo();
-petsCount();
-petsBreeds();
-petsNames();
+window.onload=init();
