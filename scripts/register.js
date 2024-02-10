@@ -18,59 +18,19 @@ function Pet(name, age, gender, breed, service){
     this.service = service;
 }
 
-// display registered pets count
-function petsCount(){
-    document.getElementById("count").innerHTML =`
-    <p>The number of pets currently registered are: <span class="num-pets">${salon.pets.length}</span></p>
-    `;
-}
-
-// display pet names
-function petsBreeds(){
-    // document.getElementById("breeds").innerHTML = "";
-    let breedList = [];
-    for (let i=0; i<salon.pets.length; i++){
-        breedList += `<li>${salon.pets[i].breed}</li>`;
-    }
-    document.getElementById("breeds").innerHTML =`
-    <p>The breeds are:</p>
-    <ul>
-    ${breedList}
-    </ul>
-    `;
-}
-
-// display pet names
-function petsNames(){
-    // document.getElementById("names").innerHTML = "";
-    let nameList = [];
-    for (let i=0; i<salon.pets.length; i++){
-        nameList += `<li>${salon.pets[i].name}</li>`;
-    }
-    document.getElementById("names").innerHTML =`
-    <p>Their names are:</p>
-    <ul>
-    ${nameList}
-    </ul>
-    `
-}
-
-// display the information about the pet salon
-function displayFooterInfo(){
-    document.getElementById("info").innerHTML=`
-    <p>🐩Welcome to ${salon.name}🐈</p><p>📍We are located in ${salon.address.street}, ${salon.address.number}, ${salon.address.zip}</p><p>You can call us 📞${salon.phone}</p>
-    `;
+// replace
+function getE(id){
+    return document.getElementById(id);
 }
 
 // get elements from HTML
-let inputName = document.getElementById("txtName");
-let inputAge = document.getElementById("numAge");
-let inputGender = document.getElementById("selectGender");
-let inputBreed = document.getElementById("txtBreed");
-let inputService = document.getElementById("selectService");
+let inputName = getE("txtName");
+let inputAge = getE("numAge");
+let inputGender = getE("selectGender");
+let inputBreed = getE("txtBreed");
+let inputService = getE("selectService");
 
 function register(){
-
     let fields = [inputName.value, inputAge.value, inputGender.value, inputBreed.value, inputService.value];
 
     if(fields.every(value => value !== "")){
@@ -79,8 +39,8 @@ function register(){
         salon.pets.push(newPet);
     
         petsCount();
-        petsBreeds();
-        petsNames();
+        displayPetCards();
+        displayPetTable();
     
         inputName.value = "";
         inputAge.value = "";
@@ -90,7 +50,6 @@ function register(){
     }
 }
 
-
 // pets default
 function init(){
     // creating predefined obj
@@ -99,9 +58,9 @@ function init(){
     let pet3 = new Pet("Tweety",80,"Female","Parrot","Nail trimming");
     salon.pets.push(pet1, pet2, pet3);
     // executing fn
+    displayPetTable();
+    displayPetCards();
     petsCount();
-    petsBreeds();
-    petsNames();
 }
 
 displayFooterInfo();
