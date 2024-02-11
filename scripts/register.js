@@ -176,6 +176,7 @@ function addInfo(){
 
 function deletePet(id){
     salon.pets.splice(id, 1);
+    petsCount();
     displayPetCards();
     displayPetTable();
 }
