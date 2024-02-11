@@ -43,11 +43,13 @@ function displayPetCards(){
         let pet = salon.pets[i];
         card +=`
         <div class="petCards">
-            <p>Name: ${pet.name}</p>
-            <p>Age: ${pet.age}</p>
-            <p>Gender: ${pet.gender}</p>
-            <p>Breed: ${pet.breed}</p>
-            <p>Service: ${pet.service}</p>
+            <div class="x-delete"><button class="x-delete" onclick="deletePet(${i})">❌</button></div>
+            <p><span class="inf-card">Name:</span> ${pet.name}</p>
+            <p><span class="inf-card">Age:</span> ${pet.age}</p>
+            <p><span class="inf-card">Gender:</span> ${pet.gender}</p>
+            <p><span class="inf-card">Breed:</span> ${pet.breed}</p>
+            <p><span class="inf-card">Service:</span> ${pet.service}</p>
+            <p><span class="inf-card">Description:</span> ${pet.description}</p>
         </div>
         `;
     }
@@ -62,9 +64,11 @@ function displayPetTable(order){
     let lengthPet = salon.pets.length;
 
     for(let i=0; i<salon.pets.length; i++){
+        let j = i;
         if(order==true){
             lengthPet -= 1;
             pet = salon.pets[lengthPet];
+            j=lengthPet;
         }else{
             pet = salon.pets[i];
         }
@@ -75,27 +79,17 @@ function displayPetTable(order){
             <td>${pet.gender}</td>
             <td>${pet.breed}</td>
             <td>${pet.service}</td>
+            <td>${pet.type}</td>
+            <td>${pet.payment}</td>
+            <td><button class="x-delete" onclick="deletePet(${j})">❌</button></td>
         </tr>
         `;
     }
-    getE('t_pet').innerHTML=`
-    <table>
-        <thead>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>Breed</th>
-            <th>Service</th>
-        </thead>
-        <tbody>
-            ${infoT}
-        </tbody>
-    </table>
-    `;
+    getE('t_pet').innerHTML=infoT;
 }
 
 // invert information
-let invert = true;
+let invert = false;
 function invertPets(){
     invert = !invert;
     displayPetTable(invert);

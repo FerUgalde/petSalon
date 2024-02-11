@@ -25,7 +25,9 @@
     <main class="container">
         <div class="register">
             <h2>Register a new pet</h2>
-
+            <div class="hidden" id="notifications">
+                <p>This is a notification section</p>
+            </div>
             <form>
                 <div class="mb-3">
                     <input class="form-control form-control-sm" type="text" id="txtName" placeholder="--- Name ---">
@@ -54,8 +56,28 @@
                         <option value="Stay">Stay</option>
                     </select>
                 </div>
+                <div class="mb-3">
+                    <input class="form-control form-control-sm" type="text" id="txtType" placeholder="--- Type ---">
+                </div>
                 <div class="btn-cont">
                     <button type="button" class="btn btn-primary btn-lg" onclick="register()">Register Pet</button>
+                </div>
+                <div class="hidden" id="notifications-copy">
+                    <p>This is a notification section</p>
+                </div>
+                <div class="mb-3">
+                    <select id="selectPayment" class="hidden">
+                        <option value="" selected disabled>--- Payment Method ---</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Card">Card</option>
+                        <option value="Transfer">Transfer</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <textarea class="hidden" id="txtDescription" cols="30" rows="7" placeholder="--- Description of your pet ---"></textarea>
+                </div>
+                <div class="hidden" id="btn-add">
+                    <button type="button" class="btn btn-primary btn-lg" onclick="addInfo()">Add info</button>
                 </div>
             </form>
 
@@ -69,7 +91,19 @@
             </div>
             <div class="table_pets">
                 <button class="filter" onclick="invertPets()">🔃</button>
-                <div id="t_pet"></div>
+                <table id="myTablePets">
+                    <thead>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Breed</th>
+                        <th>Service</th>
+                        <th>Type</th>
+                        <th>Payment</th>
+                        <th>Delete</th>
+                    </thead>
+                    <tbody id="t_pet"></tbody>
+                </table>
             </div>
         </div>
     </main>

@@ -306,6 +306,15 @@ form{
     border-radius: 2rem;
     padding: 3rem;
 }
+.petCards p{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    line-height: 5rem;
+    margin-bottom: 1.5rem;
+}
+.inf-card{
+    font-weight: bold;
+}
 @media(max-width:768px){
     #pets{
         grid-template-columns: 1fr;
@@ -317,7 +326,7 @@ table{
     font-size: 2rem;
     font-family: 'Montserrat', sans-serif;
     width: 100%;
-    table-layout: fixed;
+    /* table-layout: fixed; */
     border-collapse: collapse;
 }
 thead{
@@ -338,10 +347,15 @@ td{
 }
 
 th:first-child,
-td:first-child,
-th:last-child,
-td:last-child {
+td:first-child{
     padding: 10px 20px;
+}
+th:last-child,
+td:last-child{
+    padding: 10px;
+}
+td:last-child{
+    padding-left: 3.6%;
 }
 
 .filter{
@@ -367,5 +381,59 @@ td:last-child {
     td{
         padding: .7rem;
     }
+    #myTablePets th:nth-child(2),
+    #myTablePets td:nth-child(2),
+    #myTablePets th:nth-child(3),
+    #myTablePets td:nth-child(3),
+    #myTablePets th:nth-child(4),
+    #myTablePets td:nth-child(4),
+    #myTablePets th:nth-child(7),
+    #myTablePets td:nth-child(7){
+        display: none;
+    }
 
+    th:first-child,
+    td:first-child{
+        padding: 0 0 0 10px;
+    }
+    th:last-child,
+    td:last-child{
+        padding: 10px 10px;
+    }
+    td:last-child{
+        padding-left: 8.2%;
+    }
+}
+
+.x-delete{
+    display: flex;
+    justify-content: flex-end;
+    border: none;
+    font-size: 2rem;
+}
+
+#notifications .alert-error, #notifications .alert-successful,
+#notifications-copy .alert-error, #notifications-copy .alert-successful{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-top: .5rem;
+    margin-left: auto;
+}
+#notifications .alert-error,
+#notifications-copy .alert-error{
+    background-color: rgb(196, 60, 60);
+    color: white;
+}
+.alert-error{
+    background-color: rgb(233, 201, 201);
+}
+.alert-successful{
+    background-color: rgb(42, 175, 42);
+    color: white;
+}
+
+.hidden{
+    display: none;
 }
